@@ -19,6 +19,10 @@ public class Arvore : Personagem
     {
         Nome = "Árvore";
     }
+    public int getNivel()
+    {
+        return this.nivel;
+    }
     private void Start()
     {
         multiplicadorEvolucao = 1.20f;

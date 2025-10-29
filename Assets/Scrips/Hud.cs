@@ -5,8 +5,8 @@ public class Hud : MonoBehaviour
 {
     [Header("Referência à barra de HP no Canvas")]
     [SerializeField] private Slider hp_bar;
-
-    private Personagem player;
+    [SerializeField] private Text texto;
+    private Arvore player;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class Hud : MonoBehaviour
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
-            player = playerObject.GetComponent<Personagem>();
+            player = playerObject.GetComponent<Arvore>();
         }
         else
         {
@@ -33,11 +33,16 @@ public class Hud : MonoBehaviour
             hp_bar.maxValue = (float)player.VidaMax;
             hp_bar.value = (float)player.Vida;
         }
+        if(player != null)
+        {
+            texto.text = player.getNivel().ToString();
+        }
     }
 
     private void Update()
     {
         AtualizarHp();
+        atualizarnivel();
     }
 
     private void AtualizarHp()
@@ -46,6 +51,13 @@ public class Hud : MonoBehaviour
         {
             hp_bar.maxValue = (float)player.VidaMax;
             hp_bar.value = (float)player.Vida;
+        }
+    }
+    private void atualizarnivel()
+    {
+        if(player != null)
+        {
+            texto.text = player.getNivel().ToString();
         }
     }
 }

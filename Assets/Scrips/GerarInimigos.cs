@@ -121,7 +121,7 @@ public class GerarInimigos : MonoBehaviour
         baseSpeedPersonagem = 1f;
 
         // Recomeça o spawn inicial
-        SpawEnemies();
+        //SpawEnemies();
 
         Debug.Log("Jogo reiniciado: atributos e fase resetados.");
     }
@@ -131,7 +131,6 @@ public class GerarInimigos : MonoBehaviour
     // ===========================================================
     public void RecarregarCena()
     {
-        Scene cenaAtual = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(cenaAtual.name);
+        SceneManager.LoadSceneAsync(0);
     }
 }
